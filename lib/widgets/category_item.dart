@@ -12,7 +12,7 @@ class Categories_item extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: NetworkImage(
-              "https://mediayk.gemini.media/img/yallakora/normal/2025/5/22/12025_5_22_17_56.webp",
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm86C0QS2P_ZzaUdEWcSDn-Ix_lCSBuhPGFafTt1aWMg&s=10",
             ),
             fit: BoxFit.cover,
           ),

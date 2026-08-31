@@ -6,6 +6,28 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Column(children: [Categories_item()]));
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              "Flutter",
+              style: TextStyle(fontSize: 20, color: Colors.black),
+            ),
+            Text("News", style: TextStyle(fontSize: 20, color: Colors.blue)),
+          ],
+        ),
+      ),
+      body: Column(
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.2,
+            child: Categories_item(),
+          ),
+        ],
+      ),
+    );
   }
 }
