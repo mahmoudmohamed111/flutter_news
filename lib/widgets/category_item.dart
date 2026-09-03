@@ -8,7 +8,7 @@ class Categories_item extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 8.0),
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.4,
+        width: MediaQuery.of(context).size.width * 0.3,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: NetworkImage(
