@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news/widgets/categories_listview.dart';
 import 'package:flutter_news/widgets/home_view_body.dart';
 
 class HomeView extends StatelessWidget {

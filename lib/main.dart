@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news/views/home_view.dart';
+import 'package:flutter_news/test_page.dart';
 import 'package:flutter_news/views/splash_screen.dart';
 
 void main() {
@@ -11,6 +11,9 @@ class Flutter_News extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: SplashScreen());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: BreakingNewsSlider(),
+    );
   }
 }
