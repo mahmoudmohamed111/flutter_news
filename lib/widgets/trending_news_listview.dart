@@ -26,15 +26,12 @@ class _TrendingNewsListviewState extends State<TrendingNewsListview> {
   @override
   Widget build(BuildContext context) {
     return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        childCount: trending_news_List.length,
-        (context, index) {
-          return TrendingNewsItem(
-            newsModel: trending_news_List[index],
-            onTap: () {},
-          );
-        },
-      ),
+      delegate: SliverChildBuilderDelegate(childCount: 5, (context, index) {
+        return TrendingNewsItem(
+          newsModel: trending_news_List[index],
+          onTap: () {},
+        );
+      }),
     );
   }
 }
