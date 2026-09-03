@@ -10,6 +10,10 @@ class Flutter_News extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: SplashScreen());
+    return MaterialApp(
+      theme: ThemeData(useMaterial3: false),
+      debugShowCheckedModeBanner: false,
+      home: SplashScreen(),
+    );
   }
 }

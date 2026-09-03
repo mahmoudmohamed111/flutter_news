@@ -13,6 +13,7 @@ class GetCategoryNews {
       );
 
       final List<dynamic> articles = response.data["results"];
+      // ignore: unused_local_variable
       for (var article in articles) {}
 
       final List<NewsModel> articlesList = articles
