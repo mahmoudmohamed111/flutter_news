@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news/services/get_category_news.dart';
+import 'package:flutter_news/services/get_breaking_news.dart';
+import 'package:flutter_news/services/trending_news_services.dart';
 import 'package:flutter_news/widgets/news_item.dart';
 
 // ignore: must_be_immutable
-class CategoryView extends StatefulWidget {
-  CategoryView({super.key});
+class Breaking_News_Page extends StatefulWidget {
+  Breaking_News_Page({super.key});
   String? title;
   @override
-  State<CategoryView> createState() => _CategoryViewState();
+  State<Breaking_News_Page> createState() => _Breaking_News_PageState();
 }
 
-class _CategoryViewState extends State<CategoryView> {
+class _Breaking_News_PageState extends State<Breaking_News_Page> {
   @override
   Widget build(BuildContext context) {
-    final Page_name = ModalRoute.of(context)?.settings.arguments as String;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(Page_name),
+        title: Text("Breaking News"),
         centerTitle: true,
         titleTextStyle: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
       ),
       body: FutureBuilder(
-        future: GetCategoryNews().getcategory_news(category_name: Page_name),
+        future: GetBreakingNews().getbreaking_news(),
 
         builder: (context, snapshot) {
           if (snapshot.hasData) {
@@ -39,7 +39,7 @@ class _CategoryViewState extends State<CategoryView> {
               },
             );
           } else {
-            return Center(child: CircularProgressIndicator());
+            return CircularProgressIndicator();
           }
         },
       ),

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_news/models/news_model.dart';
+import 'package:flutter_news/services/get_breaking_news.dart';
+import 'package:flutter_news/services/trending_news_services.dart';
 import 'package:flutter_news/widgets/breaking_news_item.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -13,13 +16,17 @@ class BreakingNewsSlider extends StatefulWidget {
 class _BreakingNewsSliderState extends State<BreakingNewsSlider> {
   int activeIndex = 0;
 
-  final List<String> newsImages = [
-    'https://images.unsplash.com/photo-1788031232074-4257be937185?q=80&w=388&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1788080567027-cdfc4ba881fe?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyN3x8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1788070637333-68ec4e640086?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1788195430420-f3dd75a9a767?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyMXx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1788145653903-1edec70eb4c2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyM3x8fGVufDB8fHx8fA%3D%3D',
-  ];
+  List<NewsModel> newsImages = [];
+  @override
+  void initState() {
+    super.initState();
+    getBreakingNews();
+  }
+
+  Future<void> getBreakingNews() async {
+    newsImages = await TrendingNewsServices().gettrending_news();
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +35,15 @@ class _BreakingNewsSliderState extends State<BreakingNewsSlider> {
         children: [
           SizedBox(height: 16),
           CarouselSlider.builder(
-            itemCount: newsImages.length,
+            itemCount: newsImages.isEmpty ? newsImages.length : 4,
             itemBuilder: (context, index, realIndex) {
               final imagePath = newsImages[index];
-              return Breaking_news_item(imagePath: imagePath, index: index);
+              return Breaking_news_item(
+                imagePath:
+                    imagePath.image ??
+                    "https://images.unsplash.com/photo-1604966795869-8df0b4517138?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                index: index,
+              );
             },
             options: CarouselOptions(
               height: 200,
@@ -57,7 +69,7 @@ class _BreakingNewsSliderState extends State<BreakingNewsSlider> {
   Widget buildIndicator() {
     return AnimatedSmoothIndicator(
       activeIndex: activeIndex,
-      count: newsImages.length,
+      count: newsImages.isEmpty ? newsImages.length : 4,
       effect: const ExpandingDotsEffect(
         dotHeight: 8,
         dotWidth: 8,

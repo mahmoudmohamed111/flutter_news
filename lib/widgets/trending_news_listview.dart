@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news/models/news_model.dart';
 import 'package:flutter_news/services/trending_news_services.dart';
+import 'package:flutter_news/views/news_webview.dart';
 import 'package:flutter_news/widgets/trending_news_item.dart';
 
 class TrendingNewsListview extends StatefulWidget {
@@ -26,12 +27,17 @@ class _TrendingNewsListviewState extends State<TrendingNewsListview> {
   @override
   Widget build(BuildContext context) {
     return SliverList(
-      delegate: SliverChildBuilderDelegate(childCount: 5, (context, index) {
-        return TrendingNewsItem(
-          newsModel: trending_news_List[index],
-          onTap: () {},
-        );
-      }),
+      delegate: SliverChildBuilderDelegate(
+        childCount: trending_news_List.length != 0
+            ? 5
+            : trending_news_List.length,
+        (context, index) {
+          return TrendingNewsItem(
+            newsModel: trending_news_List[index],
+            onTap: () {},
+          );
+        },
+      ),
     );
   }
 }

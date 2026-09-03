@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news/views/breaking_news_view.dart';
 import 'package:flutter_news/views/trending_news_view.dart';
 import 'package:flutter_news/widgets/BreakingNewsSlider.dart';
 import 'package:flutter_news/widgets/categories_listview.dart';
@@ -27,6 +28,15 @@ class home_view_body extends StatelessWidget {
                 style: TextStyle(fontSize: 21, fontWeight: FontWeight.w500),
               ),
               GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Breaking_News_Page();
+                      },
+                    ),
+                  );
+                },
                 child: Text(
                   "View All",
                   style: TextStyle(
