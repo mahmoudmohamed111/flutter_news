@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news/services/trending_news_services.dart';
 import 'package:flutter_news/views/splash_screen.dart';
 
-void main() {
+void main() async {
+  await TrendingNewsServices().gettrending_news();
   runApp(Flutter_News());
 }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_news/widgets/breaking_news_item.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class BreakingNewsSlider extends StatefulWidget {
@@ -30,7 +31,7 @@ class _BreakingNewsSliderState extends State<BreakingNewsSlider> {
             itemCount: newsImages.length,
             itemBuilder: (context, index, realIndex) {
               final imagePath = newsImages[index];
-              return buildImage(imagePath, index);
+              return Breaking_news_item(imagePath: imagePath, index: index);
             },
             options: CarouselOptions(
               height: 200,
@@ -50,35 +51,6 @@ class _BreakingNewsSliderState extends State<BreakingNewsSlider> {
           buildIndicator(),
         ],
       ),
-    );
-  }
-
-  Widget buildImage(String imagePath, int index) {
-    return Stack(
-      alignment: Alignment.bottomCenter,
-      children: [
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 5),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-              image: NetworkImage(imagePath),
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsetsGeometry.only(left: 10, bottom: 10),
-          child: Text(
-            "Ties Between Biden and Merrick Garland Deteriorate",
-            style: TextStyle(
-              fontSize: 22,
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ),
-      ],
     );
   }
 
