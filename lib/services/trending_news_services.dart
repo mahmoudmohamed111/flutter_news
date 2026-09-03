@@ -11,9 +11,7 @@ class TrendingNewsServices {
       );
 
       final List<dynamic> articles = response.data["results"];
-      for (var article in articles) {
-        print(article["title"]);
-      }
+      for (var article in articles) {}
 
       final List<NewsModel> articlesList = articles
           .map(
