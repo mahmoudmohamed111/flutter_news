@@ -35,7 +35,6 @@ class TrendingNewsItem extends StatelessWidget {
                     height: 120.0,
                     width: 120.0,
                     fit: BoxFit.cover,
-                    // معالجة الأخطاء في حال فشل تحميل الصورة
                     errorBuilder: (context, error, stackTrace) => Container(
                       height: 120.0,
                       width: 120.0,
@@ -57,7 +56,7 @@ class TrendingNewsItem extends StatelessWidget {
                         style: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          fontSize: 16.0,
+                          fontSize: 18,
                         ),
                       ),
                       const SizedBox(height: 5.0),
@@ -69,7 +68,7 @@ class TrendingNewsItem extends StatelessWidget {
                         style: const TextStyle(
                           color: Colors.black54,
                           fontWeight: FontWeight.w500,
-                          fontSize: 13.0,
+                          fontSize: 15.0,
                         ),
                       ),
                     ],

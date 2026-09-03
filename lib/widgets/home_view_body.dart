@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news/test_page.dart';
 import 'package:flutter_news/widgets/BreakingNewsSlider.dart';
 import 'package:flutter_news/widgets/categories_listview.dart';
+import 'package:flutter_news/widgets/trending_news_item.dart';
+import 'package:flutter_news/widgets/trending_news_listview.dart';
 
 class home_view_body extends StatelessWidget {
   const home_view_body({super.key});
@@ -59,6 +60,8 @@ class home_view_body extends StatelessWidget {
             ),
           ],
         ),
+        SizedBox(height: 8),
+        Expanded(child: TrendingNewsListview()),
       ],
     );
   }

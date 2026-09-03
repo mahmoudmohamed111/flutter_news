@@ -10,6 +10,7 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: true,
+        elevation: 0,
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
