@@ -6,7 +6,7 @@ class TrendingNewsListview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return SliverList.builder(
       itemCount: 10,
       itemBuilder: (context, index) {
         return TrendingNewsItem(

@@ -9,59 +9,67 @@ class home_view_body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: MediaQuery.of(context).size.height * 0.10,
-          child: categories_listview(),
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.10,
+            child: categories_listview(),
+          ),
         ),
-        SizedBox(height: 24),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "Breaking News!",
-              style: TextStyle(fontSize: 21, fontWeight: FontWeight.w500),
-            ),
-            GestureDetector(
-              child: Text(
-                "View All",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.blue,
-                  decoration: TextDecoration.underline,
-                  decorationColor: Colors.blue,
+        SliverToBoxAdapter(child: SizedBox(height: 24)),
+        SliverToBoxAdapter(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Breaking News!",
+                style: TextStyle(fontSize: 21, fontWeight: FontWeight.w500),
+              ),
+              GestureDetector(
+                child: Text(
+                  "View All",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
+                    decorationColor: Colors.blue,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-        SizedBox(
-          height: MediaQuery.of(context).size.height * 0.35,
-          child: BreakingNewsSlider(),
+        SliverToBoxAdapter(
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.35,
+            child: BreakingNewsSlider(),
+          ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "Trending News!",
-              style: TextStyle(fontSize: 21, fontWeight: FontWeight.w500),
-            ),
-            GestureDetector(
-              child: Text(
-                "View All",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.blue,
-                  decoration: TextDecoration.underline,
-                  decorationColor: Colors.blue,
+        SliverToBoxAdapter(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Trending News!",
+                style: TextStyle(fontSize: 21, fontWeight: FontWeight.w500),
+              ),
+              GestureDetector(
+                child: Text(
+                  "View All",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
+                    decorationColor: Colors.blue,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-        SizedBox(height: 8),
-        Expanded(child: TrendingNewsListview()),
+        SliverToBoxAdapter(child: SizedBox(height: 8)),
+        TrendingNewsListview(),
       ],
     );
   }
