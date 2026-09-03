@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news/test_page.dart';
+import 'package:flutter_news/views/splash_screen.dart';
 
 void main() async {
   runApp(Flutter_News());
@@ -13,7 +14,7 @@ class Flutter_News extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(useMaterial3: false),
       debugShowCheckedModeBanner: false,
-      home: Test_Widget(),
+      home: SplashScreen(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news/helper.dart';
 import 'package:flutter_news/services/get_category_news.dart';
 import 'package:flutter_news/widgets/news_item.dart';
 
@@ -34,7 +35,12 @@ class _CategoryViewState extends State<CategoryView> {
                     horizontal: 16,
                     vertical: 10,
                   ),
-                  child: News_item(newsModel: snapshot.data![index]),
+                  child: News_item(
+                    onTap: () {
+                      openExternalUrl("${snapshot.data![index].url}");
+                    },
+                    newsModel: snapshot.data![index],
+                  ),
                 );
               },
             );

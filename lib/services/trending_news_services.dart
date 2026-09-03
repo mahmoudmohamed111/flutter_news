@@ -21,6 +21,7 @@ class TrendingNewsServices {
               image: article['image_url'],
               title: article['title'],
               subTitle: article['description'],
+              url: article["link"],
             ),
           )
           .toList();

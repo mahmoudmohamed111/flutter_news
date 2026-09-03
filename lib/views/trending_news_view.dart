@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news/helper.dart';
 import 'package:flutter_news/services/trending_news_services.dart';
 import 'package:flutter_news/widgets/news_item.dart';
 
@@ -33,7 +34,12 @@ class _Trending_News_PageState extends State<Trending_News_Page> {
                     horizontal: 16,
                     vertical: 10,
                   ),
-                  child: News_item(newsModel: snapshot.data![index]),
+                  child: News_item(
+                    onTap: () {
+                      openExternalUrl("${snapshot.data![index].url}");
+                    },
+                    newsModel: snapshot.data![index],
+                  ),
                 );
               },
             );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_news/helper.dart';
 import 'package:flutter_news/models/news_model.dart';
 import 'package:flutter_news/services/get_breaking_news.dart';
 import 'package:flutter_news/services/trending_news_services.dart';
@@ -39,6 +40,9 @@ class _BreakingNewsSliderState extends State<BreakingNewsSlider> {
             itemBuilder: (context, index, realIndex) {
               final imagePath = newsImages[index];
               return Breaking_news_item(
+                onTap: () {
+                  openExternalUrl("${newsImages[index].url}");
+                },
                 News_title: newsImages[index].title ?? "",
                 imagePath:
                     imagePath.image ??

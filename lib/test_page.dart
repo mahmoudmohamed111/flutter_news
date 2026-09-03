@@ -42,6 +42,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news/helper.dart';
 import 'package:flutter_news/models/news_model.dart';
+import 'package:flutter_news/services/get_breaking_news.dart';
 import 'package:flutter_news/services/trending_news_services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -57,11 +58,30 @@ class _Test_WidgetState extends State<Test_Widget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Test Page")),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () => openExternalUrl('https://www.vetogate.com/5724656'),
-          child: const Text('فتح الرابط'),
-        ),
+      body: Column(
+        children: [
+          Expanded(
+            child: FutureBuilder(
+              future: GetBreakingNews().getbreaking_news(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return ListView.builder(
+                    itemCount: snapshot.data?.length,
+                    itemBuilder: (context, index) {
+                      return ElevatedButton(
+                        onPressed: () =>
+                            openExternalUrl("${snapshot.data![index].url}"),
+                        child: const Text('فتح الرابط'),
+                      );
+                    },
+                  );
+                } else {
+                  return CircularProgressIndicator();
+                }
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

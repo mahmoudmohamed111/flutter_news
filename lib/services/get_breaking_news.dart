@@ -20,10 +20,10 @@ class GetBreakingNews {
               image: article['image_url'],
               title: article['title'],
               subTitle: article['description'],
+              url: article["link"],
             ),
           )
           .toList();
-      print(articlesList);
       return articlesList;
     } on DioException catch (e) {
       print("Dio error: ${e.message}");
