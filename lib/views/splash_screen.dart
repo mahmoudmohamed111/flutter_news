@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news/views/home_view.dart';
+import 'package:flutter_news/widgets/custom_button.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -11,7 +13,7 @@ class SplashScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SizedBox(
-              height: MediaQuery.of(context).size.height * 0.65,
+              height: MediaQuery.of(context).size.height * 0.60,
               child: ClipRRect(
                 borderRadius: BorderRadiusGeometry.circular(30),
                 child: Image.network(
@@ -33,8 +35,23 @@ class SplashScreen extends StatelessWidget {
             "Best time to read, take your time to read \n a little more of this world",
             style: TextStyle(
               color: Colors.grey,
-              fontSize: 20,
+              fontSize: 19,
               fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(height: 24),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: CustomButton(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return HomeView();
+                    },
+                  ),
+                );
+              },
             ),
           ),
         ],
