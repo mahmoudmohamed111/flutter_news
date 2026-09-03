@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news/models/news_model.dart';
 
 class TrendingNewsItem extends StatelessWidget {
-  final String imageUrl;
-  final String title;
-  final String description;
+  NewsModel newsModel;
+
   final VoidCallback onTap;
 
-  const TrendingNewsItem({
-    Key? key,
-    required this.imageUrl,
-    required this.title,
-    required this.description,
-    required this.onTap,
-  }) : super(key: key);
+  TrendingNewsItem({required this.newsModel, Key? key, required this.onTap})
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +26,8 @@ class TrendingNewsItem extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10.0),
                   child: Image.network(
-                    imageUrl,
+                    newsModel.image ??
+                        "https://unsplash.com/photos/a-book-with-a-stethoscope-on-top-of-it-OjlYsOIq-TQ",
                     height: 120.0,
                     width: 120.0,
                     fit: BoxFit.cover,
@@ -50,7 +46,7 @@ class TrendingNewsItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        title,
+                        newsModel.title ?? "",
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
@@ -62,7 +58,7 @@ class TrendingNewsItem extends StatelessWidget {
                       const SizedBox(height: 5.0),
 
                       Text(
-                        description,
+                        newsModel.subTitle ?? '',
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(

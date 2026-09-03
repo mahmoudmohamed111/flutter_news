@@ -10,7 +10,6 @@ class Breaking_news_item extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 200,
       margin: const EdgeInsets.symmetric(horizontal: 5),
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),

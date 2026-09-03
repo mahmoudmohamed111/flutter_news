@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news/models/category_model.dart';
 import 'package:flutter_news/test_page.dart';
+import 'package:flutter_news/views/category_view.dart';
 import 'package:flutter_news/widgets/category_item.dart';
 
 class categories_listview extends StatelessWidget {
@@ -48,7 +49,7 @@ class categories_listview extends StatelessWidget {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {
-                  return TestPage();
+                  return CategoryView();
                 },
                 settings: RouteSettings(
                   arguments: category_List[index].categoryName,

@@ -7,16 +7,12 @@ class TrendingNewsServices {
   Future<List<NewsModel>> gettrending_news() async {
     try {
       final response = await dio.get(
-        "https://newsdata.io/api/1/latest?apikey=pub_4846091e6bd663d0ff61dc70920a4841c18de&country=eg&category=sports",
+        "https://newsdata.io/api/1/latest?apikey=pub_1e3cde18606d4e3d8a34c621e717390d&country=eg",
       );
 
-      final Map<String, dynamic> jsonData = response.data;
-
-      final List<dynamic>? articles = jsonData['results'];
-
-      if (articles == null) {
-        print("No 'results' key found. Full response: $jsonData");
-        return [];
+      final List<dynamic> articles = response.data["results"];
+      for (var article in articles) {
+        print(article["title"]);
       }
 
       final List<NewsModel> articlesList = articles
@@ -28,7 +24,6 @@ class TrendingNewsServices {
             ),
           )
           .toList();
-      print(articlesList.length);
       return articlesList;
     } on DioException catch (e) {
       print("Dio error: ${e.message}");
