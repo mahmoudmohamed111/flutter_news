@@ -40,8 +40,10 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:flutter_news/helper.dart';
 import 'package:flutter_news/models/news_model.dart';
 import 'package:flutter_news/services/trending_news_services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Test_Widget extends StatefulWidget {
   const Test_Widget({super.key});
@@ -55,21 +57,11 @@ class _Test_WidgetState extends State<Test_Widget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Test Page")),
-      body: FutureBuilder<List<NewsModel>>(
-        future: TrendingNewsServices().gettrending_news(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            print(snapshot.data);
-            return ListView.builder(
-              itemCount: snapshot.data?.length,
-              itemBuilder: (context, index) {
-                return Text("${snapshot.data?[index].title}");
-              },
-            );
-          } else {
-            return CircularProgressIndicator();
-          }
-        },
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () => openExternalUrl('https://www.vetogate.com/5724656'),
+          child: const Text('فتح الرابط'),
+        ),
       ),
     );
   }

@@ -3,13 +3,14 @@ import 'package:flutter_news/models/news_model.dart';
 
 class GetCategoryNews {
   final Dio dio = Dio();
+  String apikey = "pub_24e2d97b4ba74bae97d4640ce0589530";
 
   Future<List<NewsModel>> getcategory_news({
     required String category_name,
   }) async {
     try {
       final response = await dio.get(
-        "https://newsdata.io/api/1/latest?apikey=pub_1e3cde18606d4e3d8a34c621e717390d&country=eg&category=$category_name",
+        "https://newsdata.io/api/1/latest?apikey=$apikey&country=eg&category=$category_name",
       );
 
       final List<dynamic> articles = response.data["results"];

@@ -3,11 +3,12 @@ import 'package:flutter_news/models/news_model.dart';
 
 class TrendingNewsServices {
   final Dio dio = Dio();
+  String apikey = "pub_24e2d97b4ba74bae97d4640ce0589530";
 
   Future<List<NewsModel>> gettrending_news() async {
     try {
       final response = await dio.get(
-        "https://newsdata.io/api/1/latest?apikey=pub_1e3cde18606d4e3d8a34c621e717390d&country=eg",
+        "https://newsdata.io/api/1/crypto?apikey=$apikey",
       );
 
       final List<dynamic> articles = response.data["results"];

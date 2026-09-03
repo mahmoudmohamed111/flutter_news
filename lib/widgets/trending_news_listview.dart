@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news/models/news_model.dart';
 import 'package:flutter_news/services/trending_news_services.dart';
-import 'package:flutter_news/views/news_webview.dart';
 import 'package:flutter_news/widgets/trending_news_item.dart';
 
 class TrendingNewsListview extends StatefulWidget {

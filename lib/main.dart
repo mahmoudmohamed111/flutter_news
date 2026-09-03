@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news/services/get_breaking_news.dart';
-import 'package:flutter_news/views/splash_screen.dart';
+import 'package:flutter_news/test_page.dart';
 
 void main() async {
-  GetBreakingNews().getbreaking_news();
   runApp(Flutter_News());
 }
 
@@ -15,7 +13,7 @@ class Flutter_News extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(useMaterial3: false),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: Test_Widget(),
     );
   }
 }

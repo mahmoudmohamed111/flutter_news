@@ -24,7 +24,7 @@ class _BreakingNewsSliderState extends State<BreakingNewsSlider> {
   }
 
   Future<void> getBreakingNews() async {
-    newsImages = await TrendingNewsServices().gettrending_news();
+    newsImages = await GetBreakingNews().getbreaking_news();
     setState(() {});
   }
 
@@ -39,6 +39,7 @@ class _BreakingNewsSliderState extends State<BreakingNewsSlider> {
             itemBuilder: (context, index, realIndex) {
               final imagePath = newsImages[index];
               return Breaking_news_item(
+                News_title: newsImages[index].title ?? "",
                 imagePath:
                     imagePath.image ??
                     "https://images.unsplash.com/photo-1604966795869-8df0b4517138?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",

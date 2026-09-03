@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 class Breaking_news_item extends StatelessWidget {
   final String imagePath;
   final int? index;
-
-  const Breaking_news_item({super.key, required this.imagePath, this.index});
+  String News_title;
+  Breaking_news_item({
+    required this.News_title,
+    super.key,
+    required this.imagePath,
+    this.index,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +27,16 @@ class Breaking_news_item extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               image: DecorationImage(
                 image: NetworkImage(imagePath),
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
               ),
             ),
           ),
           Padding(
             padding: EdgeInsetsGeometry.only(left: 10, bottom: 10),
             child: Text(
-              "Ties Between Biden and Merrick Garland Deteriorate",
+              News_title,
               style: TextStyle(
-                fontSize: 22,
+                fontSize: 18,
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
               ),
