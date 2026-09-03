@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news/widgets/category_item.dart';
+import 'package:flutter_news/widgets/categories_listview.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -23,8 +23,8 @@ class HomeView extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.2,
-            child: Categories_item(),
+            height: MediaQuery.of(context).size.height * 0.13,
+            child: categories_listview(),
           ),
         ],
       ),
