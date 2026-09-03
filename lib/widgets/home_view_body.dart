@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news/test_page.dart';
+import 'package:flutter_news/widgets/BreakingNewsSlider.dart';
 import 'package:flutter_news/widgets/categories_listview.dart';
 
 class home_view_body extends StatelessWidget {
@@ -33,6 +35,7 @@ class home_view_body extends StatelessWidget {
             ),
           ],
         ),
+        Expanded(child: BreakingNewsSlider()),
       ],
     );
   }
