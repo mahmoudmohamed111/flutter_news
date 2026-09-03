@@ -20,13 +20,13 @@ class home_view_body extends StatelessWidget {
           children: [
             Text(
               "Breaking News!",
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+              style: TextStyle(fontSize: 21, fontWeight: FontWeight.w500),
             ),
             GestureDetector(
               child: Text(
                 "View All",
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 15,
                   color: Colors.blue,
                   decoration: TextDecoration.underline,
                   decorationColor: Colors.blue,
@@ -35,7 +35,30 @@ class home_view_body extends StatelessWidget {
             ),
           ],
         ),
-        Expanded(child: BreakingNewsSlider()),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.35,
+          child: BreakingNewsSlider(),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Trending News!",
+              style: TextStyle(fontSize: 21, fontWeight: FontWeight.w500),
+            ),
+            GestureDetector(
+              child: Text(
+                "View All",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.blue,
+                  decoration: TextDecoration.underline,
+                  decorationColor: Colors.blue,
+                ),
+              ),
+            ),
+          ],
+        ),
       ],
     );
   }
